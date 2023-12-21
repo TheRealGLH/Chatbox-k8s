@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gateway
+  labels:
+    app: gateway-service
+    kind: chatbox-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gateway
+  template:
+    metadata:
+      labels:
+        app: gateway
+    spec:
+#      volumes:
+#      - name: gateway-config
+#        configMap:
+#        name: gateway-config-volume
+      containers:
+      - env:
+            - name: DOTNET_ENVIRONMENT
+              value: Development
+            - name: Logging__LogLevel__Microsoft.AspNetCore
+              value: trace
+            - name: Logging__LogLevel__Default
+              value: trace
+        name: gateway-service
+        image: martijnd95/chatbox-gatewayservice:latest
+        ports:
+        - containerPort: 80
+#        volumeMounts:
+#        - name: gateway-config-volume
+#          mountPath: /app
+        resources:
+          limits:
+            memory: 512Mi
+            cpu: "1"
