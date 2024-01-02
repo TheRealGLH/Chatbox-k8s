@@ -27,14 +27,16 @@ spec:
               value: trace
             - name: Logging__LogLevel__Default
               value: trace
+            - name: ASPNETCORE_URLS
+              value: http://+:5000
         name: gateway-service
         image: martijnd95/chatbox-gatewayservice:latest
         ports:
-        - containerPort: 80
+        - containerPort: 5000
 #        volumeMounts:
 #        - name: gateway-config-volume
 #          mountPath: /app
         resources:
           limits:
             memory: 512Mi
-            cpu: "1"
+            cpu: 250m
