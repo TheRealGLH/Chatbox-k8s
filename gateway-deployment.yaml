@@ -27,6 +27,7 @@ spec:
               value: trace
             - name: Logging__LogLevel__Default
               value: trace
+              #Linux doesn't like it when we port bind to <1024 w/o root permissions :^)
             - name: ASPNETCORE_URLS
               value: http://+:5000
         name: gateway-service
