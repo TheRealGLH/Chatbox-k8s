@@ -6,7 +6,7 @@
 Creating the local cluster:
 
 ```bash
-k3d cluster create chatbox --servers 1 --agents 1 --port 9080:80@loadbalancer --registry-config ~/Code/School/S6/ChatBox-backend/k8s/k3d-registry-config.yml
+k3d cluster create chatbox --servers 1 --agents 1 --port 9080:80@loadbalancer --registry-config k3d-registry-config.yml
 ```
 
 ```bash
