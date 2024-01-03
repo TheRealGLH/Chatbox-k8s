@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chat
+  labels:
+    app: chat
+    kind: chatbox-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: chat
+  template:
+    metadata:
+      labels:
+        app: chat
+    spec:
+      containers:
+      - env:
+            - name: DOTNET_ENVIRONMENT
+              value: Production
+            - name: Logging__LogLevel__Microsoft.AspNetCore
+              value: trace
+        name: chat-api
+        image: martijnd95/chatbox-chatservice:latest
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            memory: 512Mi
+            cpu: "1"
