@@ -6,7 +6,7 @@ metadata:
     app: profile
     kind: chatbox-deployment
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: profile

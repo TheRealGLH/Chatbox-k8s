@@ -6,7 +6,7 @@ metadata:
     app: gateway-service
     kind: chatbox-service
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: gateway
