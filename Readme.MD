@@ -68,4 +68,8 @@ To check whenever we can reach the api we can use the `kubectl port-forward` com
 
 ```bash
 kubectl port-forward [POD_NAME] <external-port>:<application:port>
+```
 
+
+## Rabbit Stuff
+https://www.rabbitmq.com/kubernetes/operator/quickstart-operator.html
