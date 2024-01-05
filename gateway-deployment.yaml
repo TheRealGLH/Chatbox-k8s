@@ -6,7 +6,7 @@ metadata:
     app: gateway-service
     kind: chatbox-service
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: gateway
@@ -22,7 +22,7 @@ spec:
       containers:
       - env:
             - name: DOTNET_ENVIRONMENT
-              value: Development
+              value: Staging
             - name: Logging__LogLevel__Microsoft.AspNetCore
               value: trace
             - name: Logging__LogLevel__Default
