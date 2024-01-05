@@ -21,6 +21,20 @@ spec:
               value: Production
             - name: Logging__LogLevel__Microsoft.AspNetCore
               value: trace
+            - name: RabbitMqConfiguration__HostName
+              value: hello-world
+            - name: RabbitMqConfiguration__Username
+              valueFrom:
+                secretKeyRef:
+                  name: hello-world-default-user
+                  key: username
+            - name: RabbitMqConfiguration__Password
+              valueFrom:
+                secretKeyRef:
+                  name: hello-world-default-user
+                  key: password
+            - name: RabbitMqConfiguration__VirtualHost
+              value: /
         name: chat-api
         image: martijnd95/chatbox-chatservice:latest
         ports:
