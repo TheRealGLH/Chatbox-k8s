@@ -6,7 +6,7 @@ metadata:
     app: profile
     kind: chatbox-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: profile
@@ -18,7 +18,7 @@ spec:
       containers:
       - env:
             - name: DOTNET_ENVIRONMENT
-              value: Production
+              value: Staging
             - name: Logging__LogLevel__Microsoft.AspNetCore
               value: trace
             - name: RabbitMqConfiguration__HostName
