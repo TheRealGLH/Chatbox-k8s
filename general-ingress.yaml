@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: chatbox-ingress
+spec:
+  rules:
+  - host: chatbox.localhost
+    http:
+      paths:
+      - path: /character
+        pathType: Prefix
+        backend:
+          service:
+            name: character-service
+            port:
+              number: 8080
+      - path: /profile
+        pathType: Prefix
+        backend:
+          service:
+            name: profile-service
+            port:
+              number: 8080
+      - path: /chat
+        pathType: Prefix
+        backend:
+          service:
+            name: chat-service
+            port:
+              number: 8080
