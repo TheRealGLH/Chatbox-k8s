@@ -31,7 +31,7 @@ spec:
             - name: ASPNETCORE_URLS
               value: http://+:5000
         name: gateway-service
-        image: martijnd95/chatbox-gatewayservice:latest
+        image: martijnd95/chatbox-gatewayservice:v0.5a.1
         ports:
         - containerPort: 5000
 #        volumeMounts:

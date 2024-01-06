@@ -36,7 +36,7 @@ spec:
             - name: RabbitMqConfiguration__VirtualHost
               value: /
         name: profile-api
-        image: martijnd95/chatbox-profileservice:latest
+        image: martijnd95/chatbox-profileservice:v0.5a.2
         ports:
         - containerPort: 8080
         resources:
