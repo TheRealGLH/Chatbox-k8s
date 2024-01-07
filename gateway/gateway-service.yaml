@@ -4,7 +4,7 @@ metadata:
   name: gateway-service
   annotations:
     service.beta.kubernetes.io/azure-load-balancer-resource-group: ChatboxKubeResourcegroup
-    service.beta.kubernetes.io/azure-pip-name: myAKSPublicIP
+    service.beta.kubernetes.io/azure-pip-name: ChatboxPublicIP
 spec:
   selector:
     app: gateway

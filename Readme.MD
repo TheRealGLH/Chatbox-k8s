@@ -98,3 +98,20 @@ clone k8s files
 git clone git@github.com:TheRealGLH/Chatbox-k8s.git
 ```
 
+TODO: get public IP for service
+
+
+get node resource group name
+```bash
+az aks show --name ChatboxAKSCluster --resource-group ChatboxKubeResourcegroup --query nodeResourceGroup -o tsv
+```
+
+will give output like ``MC_ChatboxKubeResourcegroup_ChatboxAKSCluster_westeurope``
+
+```bash
+az network public-ip create --resource-group MC_ChatboxKubeResourcegroup_ChatboxAKSCluster_westeurope --name ChatboxPublicIP --sku Standard --allocation-method static
+```
+replace resource_group value with output from previous
+
+
+
