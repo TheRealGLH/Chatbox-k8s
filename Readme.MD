@@ -73,3 +73,28 @@ kubectl port-forward [POD_NAME] <external-port>:<application:port>
 
 ## Rabbit Stuff
 https://www.rabbitmq.com/kubernetes/operator/quickstart-operator.html
+
+## AKS
+
+https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-cli
+
+
+create resource group
+```bash
+az group create --name ChatboxKubeResourcegroup --location westeurope
+```
+create cluster
+```bash
+az aks create --resource-group ChatboxKubeResourcegroup --name ChatboxAKSCluster --enable-managed-identity --node-count 1 --enable-addons monitoring --enable-msi-auth-for-monitoring --generate-ssh-keys
+```
+
+connect to cluster
+```bash
+az aks get-credentials --resource-group ChatboxKubeResourcegroup --name ChatboxAKSCluster
+```
+
+clone k8s files
+```bash
+git clone git@github.com:TheRealGLH/Chatbox-k8s.git
+```
+
