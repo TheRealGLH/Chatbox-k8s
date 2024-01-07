@@ -5,6 +5,7 @@ metadata:
   annotations:
     service.beta.kubernetes.io/azure-load-balancer-resource-group: ChatboxKubeResourcegroup
     service.beta.kubernetes.io/azure-pip-name: ChatboxPublicIP
+    service.beta.kubernetes.io/azure-dns-label-name: chatboxapiaks
 spec:
   selector:
     app: gateway
