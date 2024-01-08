@@ -1,7 +1,7 @@
 
-##K3D
+## K3D
 
-###Set up cluster and network
+### Set up cluster and network
 
 Creating the local cluster:
 
@@ -22,7 +22,7 @@ check if running
 kubectl get nodes
 ```
 
-###Put in the yamls
+### Put in the yamls
 
 To deploy the image to our kubernetes cluster we need the following command.
 ```bash
@@ -118,12 +118,15 @@ replace resource_group value with output from previous
 az network public-ip show --resource-group ChatboxKubeResourcegroup --name ChatboxPublicIP --query ipAddress --output tsv
 ```
 
+set permissions
 ```bash
 CLIENT_ID=$(az aks show --name ChatboxAKSCluster --resource-group ChatboxKubeResourcegroup --query identity.principalId -o tsv)
 RG_SCOPE=$(az group show --name ChatboxKubeResourcegroup --query id -o tsv)
 az role assignment create --assignee ${CLIENT_ID} --role "Network Contributor" --scope ${RG_SCOPE}
 ```
 
+
+## Delete when done working
 
 ```bash
 az group delete --name ChatboxKubeResourcegroup --yes --no-wait
