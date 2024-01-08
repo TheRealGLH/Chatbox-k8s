@@ -110,7 +110,7 @@ az aks show --name ChatboxAKSCluster --resource-group ChatboxKubeResourcegroup -
 will give output like ``MC_ChatboxKubeResourcegroup_ChatboxAKSCluster_westeurope``
 
 ```bash
-az network public-ip create --resource-group MC_ChatboxKubeResourcegroup_ChatboxAKSCluster_westeurope --name ChatboxPublicIP --sku Standard --allocation-method static
+az network public-ip create --resource-group ChatboxKubeResourcegroup --name ChatboxPublicIP --sku Standard --allocation-method static
 ```
 replace resource_group value with output from previous
 
@@ -118,11 +118,11 @@ replace resource_group value with output from previous
 az network public-ip show --resource-group ChatboxKubeResourcegroup --name ChatboxPublicIP --query ipAddress --output tsv
 ```
 
-
+```bash
 CLIENT_ID=$(az aks show --name ChatboxAKSCluster --resource-group ChatboxKubeResourcegroup --query identity.principalId -o tsv)
-RG_SCOPE=$(az group show --name MC_ChatboxKubeResourcegroup_ChatboxAKSCluster_westeurope --query id -o tsv)
+RG_SCOPE=$(az group show --name ChatboxKubeResourcegroup --query id -o tsv)
 az role assignment create --assignee ${CLIENT_ID} --role "Network Contributor" --scope ${RG_SCOPE}
-
+```
 
 
 ```bash
