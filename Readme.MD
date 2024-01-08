@@ -126,6 +126,13 @@ az role assignment create --assignee ${CLIENT_ID} --role "Network Contributor" -
 ```
 
 
+Order of deployments:
+
+- RabbitMQ
+- Wait for Deployments
+- Microservices
+
+
 ## Delete when done working
 
 ```bash
