@@ -98,8 +98,9 @@ clone k8s files
 git clone git@github.com:TheRealGLH/Chatbox-k8s.git
 ```
 
-TODO: get public IP for service
+### get public IP for service
 
+https://learn.microsoft.com/en-us/azure/aks/static-ip
 
 get node resource group name
 ```bash
@@ -113,5 +114,19 @@ az network public-ip create --resource-group MC_ChatboxKubeResourcegroup_Chatbox
 ```
 replace resource_group value with output from previous
 
+```bash
+az network public-ip show --resource-group ChatboxKubeResourcegroup --name ChatboxPublicIP --query ipAddress --output tsv
+```
+
+
+CLIENT_ID=$(az aks show --name ChatboxAKSCluster --resource-group ChatboxKubeResourcegroup --query identity.principalId -o tsv)
+RG_SCOPE=$(az group show --name MC_ChatboxKubeResourcegroup_ChatboxAKSCluster_westeurope --query id -o tsv)
+az role assignment create --assignee ${CLIENT_ID} --role "Network Contributor" --scope ${RG_SCOPE}
+
+
+
+```bash
+az group delete --name ChatboxKubeResourcegroup --yes --no-wait
+```
 
 
